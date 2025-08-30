@@ -23,7 +23,7 @@ namespace UdemyNewMicroservice.Shared
 		[JsonIgnore]
 		public bool IsFail => !IsSuccess;
 
-		public static ServiceResult SuccessAsNoContent()
+		public static ServiceResult SuccessAsCreated()
 		{
 			return new ServiceResult
 			{
@@ -133,7 +133,7 @@ namespace UdemyNewMicroservice.Shared
 				Data = data
 			};
 		}
-		public static ServiceResult<T> ServiceResultAsCreated(T data, string url)
+		public static ServiceResult<T> SuccessAsCreated(T data, string url)
 		{
 			return new ServiceResult<T>
 			{
