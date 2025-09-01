@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using UdemyNewMicroservice.Catalog.Api.Features.Categories.Create;
 using UdemyNewMicroservice.Catalog.Api.Features.Categories.Dtos;
@@ -10,16 +11,13 @@ using UdemyNewMicroservice.Shared.Filter;
 namespace UdemyNewMicroservice.Catalog.Api.Features.Categories.GetAll
 {
 	public class GetAllCategoryQuery : IRequest<ServiceResult<List<CategoryDto>>>;
-	public class GetAllCategoryHandler(AppDbContext context ) : IRequestHandler<GetAllCategoryQuery, ServiceResult<List<CategoryDto>>>
+	public class GetAllCategoryHandler(AppDbContext context, IMapper _mapper) : IRequestHandler<GetAllCategoryQuery, ServiceResult<List<CategoryDto>>>
 	{
 		public async Task<ServiceResult<List<CategoryDto>>> Handle(GetAllCategoryQuery request, CancellationToken cancellationToken)
 		{
 			var categories= await context.Categories
-				.ToListAsync(cancellationToken);
-			var categoriesAsDto = categories
-				.Select(c => new CategoryDto(c.Id, c.Name))
-				.ToList();
-
+				.ToListAsync(cancellationToken); //#NOTES : CancellationToken asenkron operasyonlarda işlemi iptal etmek için kullanılır. Bu, özellikle uzun süren işlemler sırasında uygulamanın yanıt vermesini sağlar ve gereksiz kaynak tüketimini önler.
+			var categoriesAsDto = _mapper.Map<List<CategoryDto>>(categories);
 			return ServiceResult<List<CategoryDto>>.SuccessAsOk(categoriesAsDto);
 		}
 	}

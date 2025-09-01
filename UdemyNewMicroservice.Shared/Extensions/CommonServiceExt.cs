@@ -20,6 +20,7 @@ namespace UdemyNewMicroservice.Shared.Extensions
 			services.AddMediatR(p => p.RegisterServicesFromAssemblyContaining(assembly));
 			services.AddFluentValidationAutoValidation();
 			services.AddValidatorsFromAssemblyContaining(assembly);
+			services.AddAutoMapper(assembly);
 			return services;
 		}
 	}
