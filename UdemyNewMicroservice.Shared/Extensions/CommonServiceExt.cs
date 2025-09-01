@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,8 @@ namespace UdemyNewMicroservice.Shared.Extensions
 		{
 			services.AddHttpContextAccessor();
 			services.AddMediatR(p => p.RegisterServicesFromAssemblyContaining(assembly));
+			services.AddFluentValidationAutoValidation();
+			services.AddValidatorsFromAssemblyContaining(assembly);
 			return services;
 		}
 	}

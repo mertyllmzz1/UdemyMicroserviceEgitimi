@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using UdemyNewMicroservice.Shared.Extensions;
+using UdemyNewMicroservice.Shared.Filter;
 
 namespace UdemyNewMicroservice.Catalog.Api.Features.Categories.Create
 {
@@ -8,7 +9,7 @@ namespace UdemyNewMicroservice.Catalog.Api.Features.Categories.Create
 	{
 		public static RouteGroupBuilder CreateCategoryItemEndpoint(this RouteGroupBuilder group)
 		{
-			group.MapPost("/", async (CreateCategoryCommand command, IMediator mediator) =>(await mediator.Send(command)).ToGenericResult());
+			group.MapPost("/", async (CreateCategoryCommand command, IMediator mediator) =>(await mediator.Send(command)).ToGenericResult()).AddEndpointFilter<ValidationFilter<CreateCategoryCommand>>();
 
 			return group;
 		}
