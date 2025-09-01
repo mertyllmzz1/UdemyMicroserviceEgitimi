@@ -1,6 +1,12 @@
-@UdemyNewMicroservice.Catalog.Api_HostAddress = http://localhost:5056
+@baseAdrress = http://localhost:5056
 
-GET {{UdemyNewMicroservice.Catalog.Api_HostAddress}}/weatherforecast/
+GET {{baseAdrress}}/api/categories
 Accept: application/json
 
 ###
+POST {{baseAdrress}}/api/categories
+Accept: application/json
+Content-Type: application/json
+{
+    "name": "Category 3"
+}
