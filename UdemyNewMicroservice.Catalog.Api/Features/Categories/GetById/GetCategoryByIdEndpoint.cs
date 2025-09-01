@@ -1,10 +1,6 @@
-﻿using AutoMapper;
-using FluentValidation;
-using MediatR;
+﻿
 using UdemyNewMicroservice.Catalog.Api.Features.Categories.Dtos;
 using UdemyNewMicroservice.Catalog.Api.Repositories;
-using UdemyNewMicroservice.Shared;
-using UdemyNewMicroservice.Shared.Extensions;
 
 namespace UdemyNewMicroservice.Catalog.Api.Features.Categories.GetById
 {

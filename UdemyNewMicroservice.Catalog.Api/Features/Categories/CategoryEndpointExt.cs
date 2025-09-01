@@ -1,7 +1,6 @@
 ﻿using UdemyNewMicroservice.Catalog.Api.Features.Categories.Create;
 using UdemyNewMicroservice.Catalog.Api.Features.Categories.GetAll;
 using UdemyNewMicroservice.Catalog.Api.Features.Categories.GetById;
-using UdemyNewMicroservice.Shared.Filter;
 
 namespace UdemyNewMicroservice.Catalog.Api.Features.Categories
 {

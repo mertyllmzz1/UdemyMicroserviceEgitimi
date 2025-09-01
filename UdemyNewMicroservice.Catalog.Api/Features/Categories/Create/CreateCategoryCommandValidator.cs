@@ -1,4 +1,4 @@
-﻿using FluentValidation;
+﻿
 
 namespace UdemyNewMicroservice.Catalog.Api.Features.Categories.Create
 {

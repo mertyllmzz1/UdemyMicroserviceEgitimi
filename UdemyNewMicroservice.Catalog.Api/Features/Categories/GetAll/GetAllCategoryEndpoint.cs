@@ -1,12 +1,5 @@
-﻿using AutoMapper;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using UdemyNewMicroservice.Catalog.Api.Features.Categories.Create;
-using UdemyNewMicroservice.Catalog.Api.Features.Categories.Dtos;
+﻿using UdemyNewMicroservice.Catalog.Api.Features.Categories.Dtos;
 using UdemyNewMicroservice.Catalog.Api.Repositories;
-using UdemyNewMicroservice.Shared;
-using UdemyNewMicroservice.Shared.Extensions;
-using UdemyNewMicroservice.Shared.Filter;
 
 namespace UdemyNewMicroservice.Catalog.Api.Features.Categories.GetAll
 {
